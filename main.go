@@ -22,4 +22,8 @@ func main() {
 		i++
 		taskCount++
 	}
+
+	for _, task := range taskItems {
+		fmt.Println(">", task)
+	}
 }
