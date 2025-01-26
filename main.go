@@ -16,7 +16,7 @@ func main() {
 
 	// printing arrays with numbering
 	for index, task := range taskItems {
-		//fmt.Println(index+1, ".", task)
+		//format with printf
 		fmt.Printf("%d. %s\n", index+1, task)
 	}
 }
