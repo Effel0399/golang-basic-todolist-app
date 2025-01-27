@@ -14,12 +14,14 @@ func main() {
 
 	fmt.Println("##### Welcome to our Todolist App #####")
 	printTasks(taskItems)
-	addTask(taskItems, "do morning run")
+	fmt.Println()
+	taskItems = addTask(taskItems, "do morning run")
+	fmt.Println("Updated list")
+	printTasks(taskItems)
 }
 
 // for printing list of tasks
 func printTasks(taskItems []string) {
-	fmt.Println()
 	fmt.Println("List of Todos:")
 	// printing arrays with numbering
 	for index, task := range taskItems {
@@ -28,8 +30,8 @@ func printTasks(taskItems []string) {
 	}
 }
 
-// for adding new task
-func addTask(taskItems []string, newTask string) {
+// for adding new task and returning it to the main variable
+func addTask(taskItems []string, newTask string) []string {
 	var updateTaskItems = append(taskItems, newTask)
-	printTasks(updateTaskItems)
+	return updateTaskItems
 }
