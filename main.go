@@ -2,22 +2,21 @@ package main
 
 import (
 	"fmt"
+	"net/http"
 )
 
 func main() {
-	var task1 = "Watch Go crash course"
-	var task2 = "Take out trash"
-	var task3 = "Buy a donut"
-
-	// basic array
-	var taskItems = []string{task1, task2, task3}
-
 	fmt.Println("##### Welcome to our Todolist App #####")
-	printTasks(taskItems)
-	fmt.Println()
-	taskItems = addTask(taskItems, "do morning run")
-	fmt.Println("Updated list")
-	printTasks(taskItems)
+
+	http.HandleFunc("/", helloUser)
+
+	http.ListenAndServe(":8080", nil) // set address to local and nil for ignore if something happens
+}
+
+// getting a request from user and sending response to user
+func helloUser(writer http.ResponseWriter, request *http.Request) {
+	var greeting = "Hello user, welcome to our Todolist App!"
+	fmt.Fprintln(writer, greeting)
 }
 
 // for printing list of tasks
