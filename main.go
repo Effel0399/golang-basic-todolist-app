@@ -22,7 +22,7 @@ func main() {
 
 // getting a request from user and sending response to user
 func helloUser(writer http.ResponseWriter, request *http.Request) {
-	var greeting = "Hello user, welcome to our Todolist App!"
+	var greeting = "##### Welcome to our Todolist App #####"
 	fmt.Fprintln(writer, greeting)
 }
 
